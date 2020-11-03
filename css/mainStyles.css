@@ -13,43 +13,66 @@ body {
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
-  
 }
 
 #menu-list {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
   list-style-type: none;
 }
 
 #menu-list > li {
+  display: block;
   background-color: yellow;
-  width: 20%;
-  margin: 20px 5px 15px;
+  width: auto;
+  margin: 1px 10px;
   text-align: center;
+}
+
+#menu-list > li a {
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+#menu-list > li a:hover {
+  background-color: black;
+  color:yellow;
 }
 
 #highlight-product {
   margin: 10px;
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 100px 100px;
-  gap: 10px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 200px 100px 100px;
+  gap: 10px 0;
 }
 
 .highlight-main {
   background-image: url("../img/pexels-roman-odintsov-4958774.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  grid-row: 1 / 3;
+  grid-row: 1 / 2;
   padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.highlight-main h3, .highlight-main p {
+  background-color: yellow;
+  margin: 5px 0;
+  padding: 5px;
 }
 
 .highlight-side {
   background-color: yellow;
-  grid-column: 2 / 3;
-  text-align: center;
+  grid-column: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .price {
@@ -60,9 +83,9 @@ body {
 #products {
   margin: 10px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto auto;
-  gap: 10px;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, auto);
+  gap: 10px 0;
 }
 
 .product {
@@ -84,12 +107,35 @@ body {
 .product-featured {
   background-color: white;
   line-height: 1.5rem;
-  grid-column: 1 / 5;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
 }
 
-.featured {
-  width: 25%;
-  float: left;
+.featured-image {
+  width: 100%;
+}
+
+.featured-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.5rem;
+  padding: 10px;
+}
+
+#btn-learn-more {
+  background-color: yellow;
+  border: none;
+  max-width: 150px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#btn-learn-more:hover {
+  background-color: black;
+  color:yellow;
 }
 
 #header-lines {
@@ -117,4 +163,99 @@ body {
 .display-flex-row > img {
   width: 150px;
   margin: 5px;
+}
+
+@media screen and (min-width: 350px) {
+  #highlight-product {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 100px;
+    gap: 10px;
+  }
+  
+  .highlight-main {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .highlight-side {
+    grid-column: auto;
+    grid-row: 2 / 3;
+  }
+
+  #products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    gap: 10px;
+  }
+
+  .product {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .product-featured {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .featured-image {
+    grid-column: 1 /2;
+  }
+  
+  .featured-info {
+    grid-column: 2 / 3;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  #highlight-product {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 100px 100px;
+  }
+  
+  .highlight-main {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+  }
+
+  .highlight-side {
+    grid-column: 2 / 3;
+    grid-row: auto;
+  }
+
+  #products {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+  }
+
+  .product {
+    grid-column: auto;
+    grid-row: 1 / 2;
+    padding: 5px;
+  }
+
+  .product-featured {
+    grid-column: 1 / 5;
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  #menu-list {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  #menu-list > li {
+    width: 20%;
+    margin: 10px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  body {
+    margin: 10px 5%;
+  }
 }
